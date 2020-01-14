@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:openDrawer="start"
+    android:layout_height="match_parent"
+    android:id="@+id/draw_layout"
+    tools:context=".MainActivity">
+    <!--主界面-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--底部导航栏-->
+            <RadioGroup
+                android:id="@+id/rg_tab_bar"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_height="56dp"
+                android:background="#ffffff"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_channel"
+                    style="@style/tab_menu_item"
+                    android:drawableTop="@drawable/tab_menu_channel"
+                    android:text="提醒" />
+
+                <RadioButton
+                    android:id="@+id/rb_message"
+                    style="@style/tab_menu_item"
+                    android:drawableTop="@drawable/tab_menu_message"
+                    android:text="信息" />
+
+                <RadioButton
+                    android:id="@+id/rb_better"
+                    style="@style/tab_menu_item"
+                    android:drawableTop="@drawable/tab_menu_better"
+                    android:text="我的" />
+
+                <RadioButton
+                    android:id="@+id/rb_setting"
+                    style="@style/tab_menu_item"
+                    android:drawableTop="@drawable/tab_menu_setting"
+                    android:text="设置" />
+
+            </RadioGroup>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rg_tab_bar"
+           android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
+    <!--侧导航-->
+    <fragment
+        android:id="@+id/navi_fragment"
+        android:name="com.example.company1.Navi"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        tools:layout="@layout/navi"
+        />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
